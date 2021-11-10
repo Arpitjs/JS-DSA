@@ -7,13 +7,28 @@
 //   pyramid(1)
 //       '#'
 //   pyramid(2)
-//       ' # '
-//       '###'
+//       ' # ' 
+//       '###' 
 //   pyramid(3)
-//       '  #  '
-//       ' ### '
-//       '#####'
+//       '  #  ' [0,1,2]
+//       ' ### ' [0,1,2]
+//       '#####' [0,1,2] 
+// 2/3, 3/5, 4/7
 
-function pyramid(n) {}
+function pyramid(n) {
+    const midPoint = Math.floor((2 * n - 1 ) / 2)
+    for (let row = 0; row < n; row++) {
+        let level = ''
+        for (let col = 0; col < 2 * n - 1; col++) {
+            if(midPoint - row <= col && midPoint + row >= col) {
+                level += '#'
+            } else {
+                level += ' '
+            }
+        }
+        console.log(level)
+    }
+}
+pyramid(3)
 
 module.exports = pyramid;

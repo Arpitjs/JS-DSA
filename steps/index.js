@@ -30,6 +30,6 @@ function steps(n) {
         console.log(stair)
     }
 }
-// console.log(steps(3))
+console.log(steps(3))
 
 module.exports = steps
