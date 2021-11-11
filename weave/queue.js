@@ -11,11 +11,18 @@ class Queue {
 
   add(record) {
     this.data.unshift(record);
+    return this
   }
 
   remove() {
     return this.data.pop();
   }
+  peek() {
+    return this.data[this.data.length -1]
+  }
 }
 
-module.exports = Queue;
+let queue = new Queue()
+console.log(queue)
+
+module.exports = Queue

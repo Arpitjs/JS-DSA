@@ -8,6 +8,17 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n) {
+    let result = [0,1]
+    for(let i=2; i<=n; i++) {
+        result[i] = result[i-1] + result[i-2]
+    }
+    return result[n]
+}
 
+let recursiveFib = n => {
+    if(n < 2) return n
+    return fib(n-1) + fib(n-2)
+}
+console.log(recursiveFib(5))
 module.exports = fib;
