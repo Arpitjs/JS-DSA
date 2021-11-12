@@ -5,6 +5,7 @@ class Stack {
 
   push(record) {
     this.data.push(record);
+    return this
   }
 
   pop() {

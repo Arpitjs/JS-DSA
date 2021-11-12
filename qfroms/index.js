@@ -11,9 +11,38 @@
 //     q.peek();  // returns 1
 //     q.remove(); // returns 1
 //     q.remove(); // returns 2
+// QUEUE=FIFO
+// STACK=LIFO
 
 const Stack = require('./stack');
 
-class Queue {}
-
-module.exports = Queue;
+class Queue {
+    constructor() {
+        this.first = new Stack()
+        this.second = new Stack()
+    }
+    add(val) {
+        this.first.push(val)
+    }
+    remove() {
+        while (this.first.peek()) {
+            this.second.push(this.first.pop())
+        }
+        let thatEl = this.second.pop()
+        while (this.second.peek()) {
+            this.first.push(this.second.pop())
+        }
+        return thatEl
+    }
+    peek() {
+        while (this.first.peek()) {
+            this.second.push(this.first.pop())
+        }
+        let thatEl = this.second.peek()
+        while (this.second.peek()) {
+            this.first.push(this.second.pop())
+        }
+        return thatEl
+    }
+}
+module.exports = Queue

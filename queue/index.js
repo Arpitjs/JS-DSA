@@ -7,7 +7,7 @@
 //     const q = new Queue();
 //     q.add(1);
 //     q.remove(); // returns 1;
-
+// FIFO
 class Queue {
     constructor() {
         this.q = []

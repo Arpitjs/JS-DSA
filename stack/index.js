@@ -9,7 +9,21 @@
 //   s.push(2);
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
+// FILO
 
-class Stack {}
+class Stack {
+    constructor() {
+        this.data = []
+    }
+    push(val) {
+        return this.data.push(val)
+    }
+    pop(val) {
+        return this.data.pop(val)
+    }
+    peek() {
+        return this.data[this.data.length-1]
+    }
+}
 
 module.exports = Stack;
