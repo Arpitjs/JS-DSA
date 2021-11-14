@@ -9,7 +9,6 @@ class Node {
     }
 
 }
-
 class LinkedList {
     constructor() {
         this.head = null
@@ -90,13 +89,37 @@ class LinkedList {
           this.head = this.head.next
           return
       }
+      //for out of order indexes
       let previous = this.getAt(index - 1)
       if(!previous || !previous.next) {
         return 
       } 
       previous.next = previous.next.next
     }
-}
+    insertAt(data, index) {
+        //if linked list has nothing
+        if(!this.head) {
+            this.head = new Node(data)
+            return
+        }
+        // if we wanna add in the front (same as insertFirst)
+        if(index === 0) {
+            this.head = new Node(data, this.head)
+            return
+        }
+        // If index is out of bounds, add the node to the end of the list
+        let previous = this.getAt(index - 1) || this.getLast()
+        let newNode = new Node(data, previous.next)
+        previous.next = newNode
+    }
+    forEach(fun) {
+        let node = this.head
+        while(node) {
+            fun(node)
+            node = node.next
+        }
+    }
+} 
 // let node0 = new Node(100)
 // let linkedList1 = new LinkedList()
 // linkedList1.head = node0
@@ -106,5 +129,6 @@ class LinkedList {
 // console.log('LAST NODE', linkedList1.getLast())
 // console.log('REMOVE FIRST', linkedList1.removeFirst())
 // console.log('INSERT LAST', linkedList1.insertLast(88))
-
+// console.log('INSERT AT', linkedList1.insertAt(1, 20))
+// console.log(linkedList1)
 module.exports = { Node, LinkedList }
